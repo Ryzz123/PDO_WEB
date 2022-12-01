@@ -1,0 +1,47 @@
+@startuml "bulma-app-php"
+
+    actor "Dania" as user #orange
+
+    node "UI HOME" as  uiHome #lightblue {
+        file "index.php" as home #pink
+        node "Table" as tabel #lightgreen
+        node "Button" as button #add182
+        node "Header" as head #b4a7e5
+    }
+
+    user-->uiHome : 1
+    uiHome-->home : 2
+    home-->tabel : 3
+    home-->button : 4
+    home-->head : 5
+
+    node "UI CREATE" as uiCreate #lightblue {
+        file "create.php" as homeC #pink
+        node "form" as form #lightgreen
+        node "Button" as buttonC #add182
+    }
+
+    button-->uiCreate : 6
+    uiCreate-->homeC : 7
+    homeC-->form : 8
+    homeC-->buttonC : 9
+
+    node "UI UPDATE" as homeUpdate #lightblue {
+        file "update.php" as homeU #pink
+        node "form" as formU #lightgreen
+        node "Button" as buttonU #add182
+    }
+
+    button-->homeU : 10
+    homeU-->formU : 11
+    homeU-->buttonU : 12
+
+    file "delete.php" as delete #pink
+
+    database "database" as data #ddd
+    tabel-->data : QUERY DATA
+    form-->data : INSERT DATA
+    formU-->data : UPDATE DATA
+    button-->delete : 13
+    delete-->data : DELETE DATA
+@enduml
